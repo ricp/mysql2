@@ -288,7 +288,7 @@ static VALUE rb_mysql_result_fetch_row(VALUE self, ID db_timezone, ID app_timezo
           if (seconds == 0) {
             val = Qnil;
           } else {
-            if (month < 1 || day < 1) {
+            if (month < 0 || day < 0) {
               rb_raise(cMysql2Error, "Invalid date: %s", row[i]);
               val = Qnil;
             } else {
@@ -328,7 +328,7 @@ static VALUE rb_mysql_result_fetch_row(VALUE self, ID db_timezone, ID app_timezo
           if (year+month+day == 0) {
             val = Qnil;
           } else {
-            if (month < 1 || day < 1) {
+            if (month < 0 || day < 0) {
               rb_raise(cMysql2Error, "Invalid date: %s", row[i]);
               val = Qnil;
             } else {
